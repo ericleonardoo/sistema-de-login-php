@@ -57,7 +57,8 @@
             }
             ?>
         </h2>
-        <p><a href="logout.php" class="logout">Sair</a></p>
+        <p><a href="logout.php" class="logout">Sair</a></p><br>
+        <p><a href="alterarsenha.html">Alterar Senha</a></p>
     </div>
 </body>
 

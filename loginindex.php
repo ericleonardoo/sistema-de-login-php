@@ -1,15 +1,17 @@
 <?php
     session_start();
     include "config.php";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        $sql = "SELECT id, nome, email, senha FROM cadastro WHERE email = '$email' AND senha = '$senha'";
-        $result = mysqli_query($conn, $sql);
-
-        if ($result && mysqli_num_rows($result) == 1) {
-            $usuario  = mysqli_fetch_assoc($result);
-            if ($usuario['email'] && password_verify($usuario,$senha["password"])) {
+        try {
+        $sql = $conn->prepare(" SELECT id, nome, email, senha FROM cadastro WHERE email = ? ");
+        $sql->bind_param('s', $email);
+        $sql->execute();
+        $result = $sql->get_result();
+        if ($result && $result->num_rows == 1 ){
+            $usuario = $result->fetch_assoc();
+             if ($usuario['email'] && password_verify($senha,$usuario["senha"])) {
                 $_SESSION['usuario_id'] = $usuario['id'];
                 $_SESSION['usuario_nome'] = $usuario['nome'];
                 $_SESSION['usuario'] = $email;
@@ -26,6 +28,10 @@
         } else  {
             echo "Email e/ou senha incorreto.";
         }
+    } catch (mysqli_sql_exception $e) {
+        echo "Erro ao processar login: ". $e->getMessage();
+    } finally {
         mysqli_close($conn);
+    }
     }
 ?>

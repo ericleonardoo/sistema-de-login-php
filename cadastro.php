@@ -1,0 +1,28 @@
+<?php
+    include "config.php";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nome = htmlspecialchars($_POST['nome']);
+        $sobrenome = htmlspecialchars($_POST['sobrenome']);
+        $telefone = htmlspecialchars($_POST['telefone']);
+        $data_nascimento = $_POST['data_nascimento'];
+        $email = htmlspecialchars($_POST['email']);
+        $senha = htmlspecialchars($_POST['senha']);
+        try {
+            $valida = "SELECT 1 FROM cadastro WHERE email = '$email'";
+            $result = mysqli_query($conn, $valida);
+            if (mysqli_num_rows($result) == 1) {
+                echo "E-mail já cadastrado.";
+            } else {
+                $hash_senha = password_hash($senha, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO cadastro (nome, sobrenome, telefone, data_nascimento, email, senha)
+                        VALUES ('$nome', '$sobrenome', '$telefone', '$data_nascimento', '$email', '$hash_senha')";
+                        mysqli_query($conn, $sql);
+                        echo "Cadastro realizado com sucesso! <a href='login.html'>Login</a>";
+            }
+        } catch (mysqli_sql_exception $e) {
+            die('Erro ao processar o cadastro.' . $e->getMessage());
+        } finally {
+            mysqli_close($conn);
+        }
+    }
+?>

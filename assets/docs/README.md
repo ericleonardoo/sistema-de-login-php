@@ -39,3 +39,25 @@ if0_40230953_tomazinhodophp
         }
     }
 ?>
+
+
+
+
+
+
+
+<div class="container">
+        <h2 class="titulo">Bem-vindo,
+            <?php
+            session_start();
+            if(!isset($_SESSION['usuario'])){
+                header("Location: login.html");
+                exit;
+            } else {
+                echo htmlspecialchars($_SESSION['usuario_nome']);
+            }
+            ?>
+        </h2>
+        <p><a href="logout.php" class="logout">Sair</a></p><br>
+        <p><a href="alterarsenha.html">Alterar Senha</a></p>
+    </div>

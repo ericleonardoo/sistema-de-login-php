@@ -29,3 +29,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erro ao processar cadastro: " . $e->getMessage();
     }
 }
+?>

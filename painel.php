@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,5 +62,4 @@
         <p><a href="alterarsenha.html">Alterar Senha</a></p>
     </div>
 </body>
-
 </html>

@@ -143,4 +143,8 @@ input::placeholder {
     .form-title {
         font-size: 1.25rem;
     }
+    .btn-cadastrar {
+        width: 100%;
+        padding: 0.75rem;
+    }
 }

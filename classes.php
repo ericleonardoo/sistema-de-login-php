@@ -43,5 +43,58 @@
             }
             $sql->close();
         }
+        public function consultaProduto($id = null) {
+            if ($id) {
+                try {
+                    $sql = $this->conn->prepare("SELECT * FROM produto WHERE id = ?");
+                    $sql->bind_param('i', $id);
+                    $sql->execute();
+                    $result = $sql->get_result();
+                    $produto = $result->fetch_assoc();
+                    $sql->close();
+                    return $produto;
+                } catch (mysqli_sql_exception $e) {
+                    echo "Erro ao processar a atualização." . $e->getMessage();
+                }
+            }else{
+                try {
+                    $sql = $this->conn->prepare("SELECT * FROM produto");
+                    $sql->execute();
+                    $result = $sql->get_result();
+                    $produtos = [];
+                    while($linha = $result->fetch_assoc()){
+                        $produtos[] = $linha;
+                    }
+                    $sql->close();
+                    return $produtos;
+                } catch (mysqli_sql_exception $e) {
+                    echo "Erro ao processar a consulta." . $e->getMessage();
+                }
+            }
+            $sql->close();
+        }
+        public function atualizaProduto($id) {
+            try {
+                $sql = $this->conn->prepare("UPDATE produto SET produto = ?, preco = ?, quantidade = ?, categoria = ? WHERE id = ?");
+                $sql->bind_param('sdisi', $this->produto, $this->preco, $this->quantidade, $this->categoria, $id);
+                $sql->execute();
+                echo "<script>alert('Cadastro atualizado com sucesso!');</script>";
+            } catch (mysqli_sql_exception $e) {
+                echo "Erro ao processar a atualização." . $e->getMessage();
+            }
+            $sql->close();
+        }
+
+        public function apagaProduto ($id) {
+            try {
+                $sql = $this->conn->prepare("DELETE FROM produto WHERE id = ?");
+                $sql->bind_param('i', $id);
+                $sql->execute();
+                echo "<script>alert('Produto apagado com sucesso')</script>";
+            } catch (mysqli_sql_exception $e) {
+                echo "Erro ao processar a atualização." . $e->getMessage();
+            }
+            $sql->close();
+        }
     }
 ?>

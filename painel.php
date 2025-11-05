@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,20 +45,24 @@
 </style>
 
 <body>
-    <div class="container">
-        <h2 class="titulo">Bem-vindo,
-            <?php
+    <h2>
+        Olá
+        <?php 
             session_start();
-            if(!isset($_SESSION['usuario'])){
+            if(!isset($_SESSION['usuario'])) {
                 header("Location: login.html");
-                exit;
-            } else {
-                echo htmlspecialchars($_SESSION['usuario_nome']);
+                exit();
+            }else {
+                echo htmlspecialchars($_SESSION['usuario']);
             }
-            ?>
-        </h2>
-        <p><a href="logout.php" class="logout">Sair</a></p><br>
-        <p><a href="alterarsenha.html">Alterar Senha</a></p>
-    </div>
+        ?>
+    </h2>
+    <p><a href="logout.php">Sair</a></p>
+    <br>
+    <p><a href="alterarsenha.html">Alterar Senhe</a></p>
+    <br>
+    <p><a href="cadastraproduto.php">Cadastrar Produto</a></p>
+    <br>
+    <p><a href="atualizaproduto.php">Atualizar Produtos</a></p>
 </body>
 </html>

@@ -151,6 +151,34 @@
             $cadProduto->setCategoria($categoria);
             $cadProduto->insereProduto();
         }
+
+        $produtos = $cadProduto->consultaProduto();
+        if ($produtos && is_array($produtos) && count($produtos) > 0) {
+            echo "<h2>Produtos Cadastrados:</h2>";
+            echo "<table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Categoria</th>
+                        </tr>
+                        </thead>
+                        <tbody>";
+            foreach ($produtos as $prod) {
+                echo "<tr>
+                <td>{$prod['id']}</td>
+            <td>{$prod['produto']}</td>
+            <td>{$prod['preco']}</td>
+            <td>{$prod['quantidade']}</td>
+            <td>{$prod['categoria']}</td>
+            </tr>";
+        }
+        echo "</tdbody></table>";
+    } else {
+        echo "<p>Nenhum produto cadastrado.</p>";
+    }
     ?>
 </body>
 </html>

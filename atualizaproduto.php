@@ -46,9 +46,9 @@
                     <tbody>";
         foreach ($produtos as $prod) {
            echo "<tr>
-            <form action='' method=''>
+            <form action='' method='post'>
             <td>{$prod['id']}<input type='hidden' name='id' value='{$prod['id']}'></td>
-            <td><input type='text' name='produto' value='{$prod['produto']}'></td>
+            <td><input type='text' name='nome' value='{$prod['produto']}'></td>
             <td><input type='number' step='0.01' name='preco' value='{$prod['preco']}'></td>
             <td><input type='number' name='quantidade' value='{$prod['quantidade']}'></td>
             <td><input type='text' name='categoria' value='{$prod['categoria']}'></td>

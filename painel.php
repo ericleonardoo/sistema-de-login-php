@@ -64,5 +64,6 @@
     <p><a href="cadastraproduto.php">Cadastrar Produto</a></p>
     <br>
     <p><a href="atualizaproduto.php">Atualizar Produtos</a></p>
+    <p><a href="cadastraimagem.php">Cadastra Imagens</a></p>
 </body>
 </html>

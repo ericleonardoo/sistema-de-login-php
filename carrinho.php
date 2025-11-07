@@ -46,12 +46,18 @@
                         <td>{$qtd}</td>
                         <td> R$ " . $total ."</td>
                         </tr>";
-
                     }
                 }
             }
             echo "<tr>
-                    <td colspan='4'>Total Geral</td>";
+                    <td colspan='4'>Total Geral</td>
+                    <td><strong>R$ " . $totalGeral . "</strong></td>
+                    </tr>
+                    </table><br>
+                    <form method='post'>
+                    <button type='submit' name='finalizar'>Finalizar Compra</button>
+                    </form>
+                    ";
         }
     ?>
 </body>

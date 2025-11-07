@@ -109,7 +109,7 @@ class Produto
 
     public function cadastraImagem($id, $produto, $foto)
     {
-        if (isset($foto) && $foto['erro'] === ['UPLOAD_ERR_OK']) {
+        if (isset($foto) && $foto['error'] === UPLOAD_ERR_OK) {
             $nomeTemporario = $foto['tmp_name'];
             $nomeOriginal = basename($foto['name']);
             $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
@@ -122,15 +122,25 @@ class Produto
             }
             $caminhoFinal = $diretorio . $novoNome;
             if (move_uploaded_file($nomeTemporario, $caminhoFinal)) {
-                $sql = $this->conn->prepare("UPDATE produto SET caminhoImagem =? WHERE id = ?");
+                $sql = $this->conn->prepare("UPDATE produto SET caminhoImagem = ? WHERE id = ?");
                 $sql->bind_param('si', $caminhoFinal, $id);
                 $sql->execute();
                 echo "<script>alert('Arquivo enviado com sucesso!');</script>";
             } else {
-                echo "<script>alerta('Ocorreu um erro ao mover o arquivo.');</script>";
+                echo "<script>alert('Ocorreu um erro ao mover o arquivo.');</script>";
             }
         } else {
-            echo "<script>alerta('Nenhum arquivo foi selecionado ou correu um erro.');</script>";
+            echo "<script>alert('Nenhum arquivo foi selecionado ou correu um erro.');</script>";
         }
+    }
+    public function vendeProduto($id,$quantidade) {
+        try {
+            $sql = $this->conn->prepare("UPDATE produto SET quantidade = (quantidade - ?) WHERE id = ?");
+            $sql->bind_param('ii',$quantidade,$id);
+            $sql->execute();
+        } catch (mysqli_sql_exception $e) {
+            echo "Erro ao processar a atualização.".$e->getMessage();
+        }
+        $sql->close();
     }
 }

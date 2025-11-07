@@ -34,7 +34,7 @@
             echo "<tr>
                 <form action='' method='post' enctype='multipart/form-data'>
                 <td>
-                1prod['id']
+                {$prod['id']}
                 <input type='hidden' name='id' value='{$prod['id']}'>
                 </td>
                 <td>{$prod['produto']}</td>

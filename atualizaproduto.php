@@ -11,7 +11,7 @@
     <?php
     include "classes.php";
     $atuProduto = new Produto("", "", "", "");
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD' === 'POST']) {
         $id = $_POST['id'];
         $acao = $_POST['acao'];
         if ($acao === 'salvar') {

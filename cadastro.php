@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $senha = htmlspecialchars($_POST['senha']);
     try {
-        $valida = $conn->prepare("SELECT 1 FROM cadastro WHERE email = ?");
+        $valida = $conn->prepare("SELECT 1 FROM usuarios WHERE email = ?");
         $valida->bind_param('s', $email);
         $valida->execute();
         $valida->get_result();
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $valida->close();
         $hash_senha = password_hash($senha, PASSWORD_DEFAULT);
-        $sql = $conn->prepare("INSERT INTO cadastro (nome, sobrenome, telefone, data_nascimento, email, senha) VALUES (?, ?, ?, ?, ?, ?)");
+        $sql = $conn->prepare("INSERT INTO usuarios (nome, sobrenome, telefone, data_nascimento, email, senha) VALUES (?, ?, ?, ?, ?, ?)");
         $sql->bind_param('ssssss', $nome, $sobrenome, $telefone, $data_nascimento, $email, $hash_senha);
         $sql->execute();
         $sql->close();

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="venda.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <header>
         <nav>
@@ -23,10 +21,10 @@
         </nav>
     </header>
 
-        <video class="video" autoplay loop muted>
-                <source src="./video/revuelto.mp4" type="video/mp4">
-                Seu navegador não suporta a tag de vídeo.
-            </video>
+    <video class="video" autoplay loop muted>
+        <source src="./video/revuelto.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
     <section class="home" id="home">
         <div class="home-conteudo">
             <h1>Experiência de <span class="highlight">Luxo</span> e Desempenho</h1>
@@ -37,7 +35,6 @@
 
     <section class="secao-carros" id="carros">
         <h2 class="secaocarros-titulo">Nossa Frota</h2>
-
         <div class="grid-carros">
             <?php
             session_start();
@@ -95,9 +92,9 @@
                 <h3>Aurum<span style="color: #ff1a1a;">Motors</span></h3>
                 <p style="color: #aaa;">Experiência premium em mobilidade de luxo desde 2025.</p>
             </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Aurum Motors. Todos os direitos reservados.</p>
-        </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aurum Motors. Todos os direitos reservados.</p>
+            </div>
     </footer>
 </body>
 

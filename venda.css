@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header e Navegação */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo img {
+    font-size: 28px;
+    height: 100px;
+    width: 100px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: #ff1a1a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff1a1a;
+}
+
+/* Seção home */
+.home {
+    margin-top: 70px;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #070707 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 26, 26, 0.1) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.botao-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #ff1a1a;
+    color: #ff1a1a;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.botao-carrinho:hover {
+    background: #ff1a1a;
+    color: #000;
+    transform: scale(1.1);
+}
+
+.video {
+    position: absolute;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    object-fit: cover; 
+    z-index: 1;
+    opacity: 20%;
+}
+
+.home {
+    position: relative; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-content {
+    z-index: 1;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.home h1 {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.home h1 .highlight {
+    color: #ff1a1a;
+}
+
+.home-content p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.botao-cta {
+    display: inline-block;
+    padding: 15px 50px;
+    background: #ff1a1a;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.botao-cta:hover {
+    background: #ff3333;
+    transform: scale(1.05);
+}
+
+/* Seção de Carros */
+.secao-carros {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.secaocarros-titulo {
+    font-size: 48px;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.secaocarros-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #ff1a1a;
+}
+
+.grid-carros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.car-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border: 1px solid rgba(255, 26, 26, 0.2);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.car-card:hover {
+    border-color: #ff1a1a;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 26, 26, 0.2);
+}
+
+.car-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #666;
+    font-weight: 600;
+}
+
+.car-info {
+    padding: 2rem;
+}
+
+.car-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.car-year {
+    color: #ff1a1a;
+    font-size: 14px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.car-specs {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    color: #aaa;
+}
+
+.spec {
+    text-align: center;
+}
+
+.spec-value {
+    display: block;
+    color: #ff1a1a;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid #ff1a1a;
+    color: #ff1a1a;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.view-btn:hover {
+    background: #ff1a1a;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255, 26, 26, 0.2);
+    padding: 3rem 5%;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Produtos PHP */
+.product-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border: 1px solid rgba(255, 26, 26, 0.2);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    border-color: #ff1a1a;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 26, 26, 0.2);
+}
+
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-details {
+    margin-bottom: 1rem;
+}
+
+.product-brand {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ff1a1a;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.product-name {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.product-description {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.product-specs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-year,
+.product-km {
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-price-container {
+    margin-bottom: 1.5rem;
+}
+
+.product-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-to-cart-form {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.quantity-input {
+    width: 70px;
+    padding: 10px;
+    background: rgba(255, 26, 26, 0.1);
+    border: 1px solid #ff1a1a;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.add-to-cart-btn {
+    flex: 1;
+    padding: 10px 20px;
+    background: #ff1a1a;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.add-to-cart-btn:hover {
+    background: #ff3333;
+    transform: scale(1.05);
+}

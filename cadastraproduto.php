@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
         :root{
             --bg: #f6f9ff;
             --card: #ffffff;
-            --primary: #2563eb;
-            --primary-600: #1d4ed8;
+            --primary: #d4af37;
+            --primary-600: #a0811dff;
             --muted: #64748b;
             --border: #e6eefc;
             --radius: 12px;
@@ -128,6 +128,18 @@
     </style>
 </head>
 <body>
+        <h2>Olá
+            <?php 
+                session_start();
+                if(!isset($_SESSION['admin'])) {
+                    header("Location: loginadmin.html");
+                    exit;
+                } else {
+                    echo htmlspecialchars($_SESSION['admin_nome']);
+                }
+            ?>
+        </h2>
+
     <h2>Cadastro de Produto</h2>
     <form action="" method="post">
         Nome: <input type="text" name="nome" required><br><br>

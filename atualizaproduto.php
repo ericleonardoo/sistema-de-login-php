@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,16 @@
 </head>
 
 <body>
+    <h2>
     <?php
+    session_start();
+    if(!isset($_SESSION['admin'])) {
+        header("Location: loginadmin.html");
+        exit;
+    } else {
+        echo htmlspecialchars($_SESSION['admin_nome']);
+    }
+
     include "classes.php";
     $atuProduto = new Produto("", "", "", "");
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -62,6 +71,7 @@
         echo "<p>Nenhum produto cadastrado.</p>";
     }
     ?>
+</h2>
 </body>
 
 </html>

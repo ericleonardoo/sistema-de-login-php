@@ -29,7 +29,7 @@
         <div class="home-conteudo">
             <h1>Experiência de <span class="highlight">Luxo</span> e Desempenho</h1>
             <p>Explore a coleção exclusiva de carros de alta performance</p>
-            <button class="botao-cta">Explorar</button>
+            <button class="botao-cta" href="#secao-carros">Explorar</button>
         </div>
     </section>
 
@@ -58,21 +58,21 @@
 
             if ($produtos && count($produtos) > 0) {
                 foreach ($produtos as $prod) {
-                    echo "<div class='product-card scroll-animate'>
-                                <div class='product-image-container'>
-                                    <img src='{$prod['caminhoImagem']}' alt='{$prod['produto']}' class='product-image'>
+                    echo "<div class='card-produto scroll-animate'>
+                                <div class='imagem-produto-container'>
+                                    <img src='{$prod['caminhoImagem']}' alt='{$prod['produto']}' class='imagem-produto'>
                                 </div>
-                                <div class='product-info'>
-                                    <div class='product-details'>
-                                        <h4 class='product-name'>{$prod['produto']}</h4>
+                                <div class='info-produto'>
+                                    <div class='descricao-produto'>
+                                        <h4 class='nome-produto'>{$prod['produto']}</h4>
                                     </div>
-                                    <div class='product-price-container'>
-                                        <span class='product-price'>R$ {$prod['preco']}</span>
+                                    <div class='preco-produto-container'>
+                                        <span class='preco-produto'>R$ {$prod['preco']}</span>
                                     </div>
-                                    <form method='post' class='add-to-cart-form'>
+                                    <form method='post' class='adicionar-no-carrinho'>
                                         <input type='hidden' name='id' value='{$prod['id']}'>
-                                        <input type='number' name='quantidade' value='1' min='1' class='quantity-input'>
-                                        <button type='submit' class='add-to-cart-btn'>
+                                        <input type='number' name='quantidade' value='1' min='1' class='quantidade'>
+                                        <button type='submit' class='adicionar-no-carrinho-botao'>
                                             Adicionar
                                         </button>
                                     </form>
@@ -86,13 +86,13 @@
         </div>
     </section>
 
-    <footer id="contato">
-        <div class="footer-content">
+    <footer>
+        <div class="conteudo-footer">
             <div class="footer-section">
                 <h3>Aurum<span style="color: #ff1a1a;">Motors</span></h3>
                 <p style="color: #aaa;">Experiência premium em mobilidade de luxo desde 2025.</p>
             </div>
-            <div class="footer-bottom">
+            <div class="copyright-footer">
                 <p>&copy; 2025 Aurum Motors. Todos os direitos reservados.</p>
             </div>
     </footer>

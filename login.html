@@ -1,29 +1,178 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    :root {
+      --primary-color: #d4af37;
+      --primary-hover: #866b0f;
+      --background: #000;
+      --card-bg: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --border-color: #e2e8f0;
+      --input-bg: #f8fafc;
+      --input-focus: #fff;
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--background);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .form-card {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 500px;
+      padding: 2rem;
+    }
+
+    .form-title {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    input {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      background-color: var(--input-bg);
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background-color: var(--input-focus);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    input::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    .btn-cadastrar {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+
+    .btn-cadastrar:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-cadastrar:active {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1rem;
+      }
+      .form-card {
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+      }
+      .form-title {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+  <body>
     <div class="container">
-        <div class="form-card">
-            <h2 class="form-title">Acesse sua conta</h2>
-            <form action="loginindex.php" method="post" class="login-form">
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-                </div>
-                <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-                    <input type="checkbox" name="lembrar" value="1"> Lembrar meu e-mail<br><br>
-                </div>
-                <button type="submit" class="btn-cadastrar">Acessar</button>
-            </form>
-        </div>
+      <div class="form-card">
+        <h2 class="form-title">Acesse sua conta</h2>
+        <form action="loginindex.php" method="post" class="login-form">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Digite sua senha"
+              required
+            />
+            <input type="checkbox" name="lembrar" value="1" /> Lembrar meu
+            e-mail<br /><br />
+          </div>
+          <button type="submit" class="btn-cadastrar">Acessar</button>
+          <a href="novasenha.php">Esqueci minha senha</a>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Admin</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Senha</title>
+</head>
+    <style>
     :root {
       --primary-color: #d4af37;
       --primary-hover: #866b0f;
@@ -142,11 +137,11 @@
       }
     }
   </style>
-  <body>
+<body>
     <div class="container">
       <div class="form-card">
         <h2 class="form-title">Acesse sua conta</h2>
-        <form action="loginadmin.php" method="post" class="login-form">
+        <form action="" method="post" class="login-form">
           <div class="form-group">
             <label for="email">E-mail</label>
             <input
@@ -166,13 +161,31 @@
               placeholder="Digite sua senha"
               required
             />
-            <input type="checkbox" name="lembrar" value="1" /> Lembrar meu
-            e-mail<br /><br />
-          </div>
-          <button type="submit" class="btn-cadastrar">Acessar</button>
-          <a href="novasenha.php">Esqueci minha senha</a>
-        </form>
-      </div>
+            </form>
+            <button type="submit" class="btn-cadastrar">Alterar</button>
+        </div>
     </div>
-  </body>
+    <?php 
+        session_start();
+        include "config.php";
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+            $hash_senha = password_hash($senha, PASSWORD_DEFAULT);
+            try {
+                $sql = $conn->prepare("UPDATE cadastro SET senha = ? WHERE email = ?");
+                $sql->bind_param('ss', $hash_senha,$email);
+                $sql->execute();
+                if ($sql->affected_rows > 0) {
+                    echo "<script>alert('Senha alterada com sucesso!');
+                    history.back();</script>";
+                }
+            } catch(mysqli_sql_exception $e) {
+                echo "Ocorreu um erro ao alterar a senha". $e->getMessage();
+            } finally {
+                mysqli_close($conn);
+            }
+        }
+    ?>
+</body>
 </html>

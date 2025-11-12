@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastra Imagens</title>
 </head>
 <body>
+    <h2>Olá
+        <?php 
+            session_start();
+            if(!isset($_SESSION['admin'])) {
+                header("Location: loginadmin.html");
+                exit;
+            } else {
+                echo htmlspecialchars($_SESSION['admin_nome']);
+            }
+        ?>
+    </h2>
     <?php
         include "classes.php";
         $atuImagem = new Produto ("", "", "", "");

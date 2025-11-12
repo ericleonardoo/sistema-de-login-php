@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel</title>
+    <title>Painel Admin</title>
     <style>
-        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +14,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            background: linear-gradient(135deg, #e3f2fd, fbefbbff);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,12 +62,12 @@
             text-decoration: none;
             font-weight: 500;
             color: white;
-            background-color: #42a5f5;
+            background-color: #d4af37;
             transition: all 0.3s ease;
         }
 
         a:hover {
-            background-color: #1e88e5;
+            background-color: #d4af37;
             transform: translateY(-2px);
             box-shadow: 0 5px 12px rgba(30, 136, 229, 0.3);
         }
@@ -90,17 +89,18 @@
             Olá,
             <?php 
                 session_start();
-                if(!isset($_SESSION['usuario'])) {
-                    header("Location: login.html");
+                if(!isset($_SESSION['admin'])) {
+                    header("Location: loginadmin.html");
                     exit();
                 } else {
-                    echo htmlspecialchars($_SESSION['usuario']);
+                    echo htmlspecialchars($_SESSION['admin_nome']);
                 }
             ?>
         </h2>
 
         <p><a href="logout.php" class="logout">Sair</a></p>
         <p><a href="alterarsenha.html">Alterar Senha</a></p>
+        <p><a href="cadastroadmin.html">Cadastra novos admins</a></p>
         <p><a href="cadastraproduto.php">Cadastrar Produto</a></p>
         <p><a href="atualizaproduto.php">Atualizar Produtos</a></p>
         <p><a href="cadastraimagem.php">Cadastrar Imagens</a></p>
